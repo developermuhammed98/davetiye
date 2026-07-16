@@ -533,10 +533,22 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
   font-weight: 500;
 }
 .det-divider {
+  position: relative;
   width: 1px;
   background: rgba(26, 21, 16, 0.15);
   height: 90px;
   align-self: center;
+}
+.det-divider::after {
+  content: '◆';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #FDFBF5;
+  color: rgba(26, 21, 16, 0.4);
+  font-size: 0.5rem;
+  padding: 4px 0;
 }
 @media(max-width:480px) {
   .det-divider {
@@ -938,19 +950,31 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 
       <div class="dets">
         <div class="det">
-          <!-- Pin icon -->
-          <div class="det-icon">&#128205;</div>
+          <!-- Pin icon SVG -->
+          <div class="det-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1510" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+          </div>
           <div class="det-lbl">Yer</div>
           <div class="det-main">Salon Zigana VIP</div>
           <div class="det-sub">Atakent Mah. Reşitpaşa Cad. No: 75/B<br>Ümraniye / İstanbul</div>
         </div>
         <div class="det-divider"></div>
         <div class="det">
-          <!-- Calendar icon -->
-          <div class="det-icon">&#128197;</div>
-          <div class="det-lbl">Tarih / Saat</div>
+          <!-- Calendar icon SVG -->
+          <div class="det-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1510" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <div class="det-lbl">Tarih &amp; Saat</div>
           <div class="det-main">25 Ekim 2026 Pazar</div>
-          <div class="det-sub" style="border-top: 1px solid rgba(26,21,16,0.2); margin-top:4px; padding-top:4px; width:80px; margin-left:auto; margin-right:auto;">SAAT 13:00</div>
+          <div class="det-sub">Saat 13:00 &ndash; 17:00</div>
         </div>
       </div>
 
