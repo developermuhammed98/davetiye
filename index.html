@@ -562,6 +562,43 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
   color: #1A1510;
 }
 
+/* buttons */
+.btn-map {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+  background: #1A1510;
+  color: #FDFBF5;
+  border: 1px solid #1A1510;
+  border-radius: 2px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(26, 21, 16, 0.15);
+  margin-bottom: 0.8rem;
+  transition: all 0.3s ease;
+}
+.btn-map:hover {
+  background: #FDFBF5;
+  color: #1A1510;
+  box-shadow: 0 6px 18px rgba(26, 21, 16, 0.25);
+  transform: translateY(-2px);
+}
+.btn-map svg {
+  transition: transform 0.3s ease;
+}
+.btn-map:hover svg {
+  transform: scale(1.15);
+}
+
 @media(prefers-reduced-motion:reduce){
   .flying-envelope,.hint-text,.pulse-ring,.envelope{animation:none!important}
   .loader-text{animation:none!important;opacity:1}
@@ -575,9 +612,19 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
   .cd-item{min-width:52px;padding:.4rem .2rem .35rem}
   .cd-item span{font-size:1.15rem}
   .det-main{font-size:.78rem}
-  .btn-map{font-size:.62rem;letter-spacing:1.8px;padding:11px}
+  .btn-map{font-size:0.65rem;letter-spacing:0.15em;padding:11px}
   .ornament{display:none}
   .fams{margin-bottom:1.2rem}
+  
+  /* Scale corner flowers down on mobile to avoid overlap */
+  .bc {
+    width: 140px;
+    height: 126px;
+  }
+  .bc-tr { top: -10px; right: -10px; }
+  .bc-bl { bottom: -10px; left: -10px; }
+  .bc-tl { top: -10px; left: -10px; }
+  .bc-br { bottom: -10px; right: -10px; }
 }
 @media(max-width:380px){
   .bride-name,.groom-name{font-size:clamp(1.5rem,9vw,2.2rem)}
@@ -729,21 +776,32 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
       <circle cx="119" cy="115" r="2.5" fill="#5A7A4E" opacity=".58"/>
     </svg>
 
-    <!-- Small top-left -->
-    <svg class="bc bc-tl" width="130" height="115" viewBox="0 0 130 115" fill="none">
-      <path d="M0 0 C22 18 38 36 44 68" stroke="#5A7A4E" stroke-width="1.2" fill="none"/>
-      <path d="M18 12 C6 28 10 48 26 50 C37 51 42 42 33 30 Z" fill="#8BAF78" opacity=".62"/>
-      <path d="M34 40 C20 44 17 58 28 65 C37 70 44 63 40 52 Z" fill="#6B8F5E" opacity=".56"/>
-      <circle cx="46" cy="70" r="3" fill="#5A7A4E" opacity=".5"/>
-      <circle cx="52" cy="76" r="2" fill="#7A9A68" opacity=".45"/>
+    <!-- Top left (mirrored horizontally via CSS, same SVG) -->
+    <svg class="bc bc-tl" width="210" height="190" viewBox="0 0 210 190" fill="none">
+      <path d="M210 0 C185 25 155 35 130 68 C118 83 115 100 124 112" stroke="#5A7A4E" stroke-width="1.6" fill="none"/>
+      <path d="M192 18 C172 13 156 24 162 46 C166 57 176 58 186 49 Z" fill="#7A9A68" opacity=".88"/>
+      <path d="M172 6 C152 10 140 24 148 40 C154 52 166 52 173 40 Z" fill="#5A7A4E" opacity=".78"/>
+      <path d="M208 34 C185 32 168 44 172 61 C176 73 188 73 196 62 Z" fill="#8BAF78" opacity=".72"/>
+      <path d="M145 62 C128 56 118 70 124 85 C129 96 141 95 146 83 Z" fill="#6B8F5E" opacity=".68"/>
+      <path d="M160 42 C152 33 141 36 139 49 C137 60 145 64 154 57 Z" fill="#A8C895" opacity=".62"/>
+      <path d="M175 68 C162 62 155 74 162 85 C167 93 177 90 178 79 Z" fill="#C2D9B5" opacity=".55"/>
+      <circle cx="126" cy="108" r="4" fill="#5A7A4E" opacity=".7"/>
+      <circle cx="132" cy="116" r="3" fill="#7A9A68" opacity=".62"/>
+      <circle cx="119" cy="115" r="2.5" fill="#5A7A4E" opacity=".58"/>
     </svg>
 
-    <!-- Small bottom-right -->
-    <svg class="bc bc-br" width="130" height="115" viewBox="0 0 130 115" fill="none">
-      <path d="M0 0 C22 18 38 36 44 68" stroke="#5A7A4E" stroke-width="1.2" fill="none"/>
-      <path d="M18 12 C6 28 10 48 26 50 C37 51 42 42 33 30 Z" fill="#8BAF78" opacity=".62"/>
-      <path d="M34 40 C20 44 17 58 28 65 C37 70 44 63 40 52 Z" fill="#6B8F5E" opacity=".56"/>
-      <circle cx="46" cy="70" r="3" fill="#5A7A4E" opacity=".5"/>
+    <!-- Bottom right (rotated 180deg & mirrored horizontally via CSS, same SVG) -->
+    <svg class="bc bc-br" width="210" height="190" viewBox="0 0 210 190" fill="none">
+      <path d="M210 0 C185 25 155 35 130 68 C118 83 115 100 124 112" stroke="#5A7A4E" stroke-width="1.6" fill="none"/>
+      <path d="M192 18 C172 13 156 24 162 46 C166 57 176 58 186 49 Z" fill="#7A9A68" opacity=".88"/>
+      <path d="M172 6 C152 10 140 24 148 40 C154 52 166 52 173 40 Z" fill="#5A7A4E" opacity=".78"/>
+      <path d="M208 34 C185 32 168 44 172 61 C176 73 188 73 196 62 Z" fill="#8BAF78" opacity=".72"/>
+      <path d="M145 62 C128 56 118 70 124 85 C129 96 141 95 146 83 Z" fill="#6B8F5E" opacity=".68"/>
+      <path d="M160 42 C152 33 141 36 139 49 C137 60 145 64 154 57 Z" fill="#A8C895" opacity=".62"/>
+      <path d="M175 68 C162 62 155 74 162 85 C167 93 177 90 178 79 Z" fill="#C2D9B5" opacity=".55"/>
+      <circle cx="126" cy="108" r="4" fill="#5A7A4E" opacity=".7"/>
+      <circle cx="132" cy="116" r="3" fill="#7A9A68" opacity=".62"/>
+      <circle cx="119" cy="115" r="2.5" fill="#5A7A4E" opacity=".58"/>
     </svg>
 
     <button id="close-letter" aria-label="Kapat">&times;</button>
@@ -841,6 +899,10 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
       <p class="cd-cap">Nisan toreni icin kalan sure</p>
 
       <a href="https://maps.google.com/?q=Salon+Zigana+VIP+Umraniye" target="_blank" rel="noopener" class="btn-map">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-top:-1px;">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+          <circle cx="12" cy="10" r="3" />
+        </svg>
         Yol Tarifi Al
       </a>
       <p class="rsvp-note">Katiliminizi onceden bildirmenizi rica ederiz.</p>
