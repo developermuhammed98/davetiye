@@ -275,20 +275,32 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
   z-index: 1;
 }
 
-/* botanical SVG corners matching line art exactly */
+/* botanical SVG corners */
 .bc {
   position: absolute;
   pointer-events: none;
   z-index: 10;
 }
+.bc-tr {
+  top: -18px;
+  right: -18px;
+}
+.bc-bl {
+  bottom: -18px;
+  left: -18px;
+  transform: rotate(180deg);
+}
 .bc-tl {
-  top: -1px;
-  left: -1px;
+  top: -12px;
+  left: -12px;
+  transform: scaleX(-1);
+  opacity: .65;
 }
 .bc-br {
-  bottom: -1px;
-  right: -1px;
-  transform: rotate(180deg);
+  bottom: -12px;
+  right: -12px;
+  transform: rotate(180deg) scaleX(-1);
+  opacity: .65;
 }
 
 /* close btn */
@@ -683,48 +695,56 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 <div id="letter-overlay" role="dialog" aria-modal="true" aria-label="Nisan davetiyesi">
   <div id="letter-paper">
     <!-- Double border structure -->
-    <div class="card-inner-border">
-      <!-- Leafy SVG corner - Top Left -->
-      <svg class="bc bc-tl" width="150" height="150" viewBox="0 0 160 160" fill="none" stroke="#1A1510" stroke-width="1.2" stroke-linecap="round">
-        <path d="M 0 120 C 0 80, 20 20, 120 0" />
-        <path d="M 6 95 C 1 83, 11 75, 18 84 C 20 89, 16 95, 6 95 Z" fill="#1A1510" opacity="0.15" />
-        <path d="M 6 95 C 1 83, 11 75, 18 84 C 20 89, 16 95, 6 95" />
-        <path d="M 23 85 C 38 75, 42 90, 32 95 C 26 97, 20 93, 23 85 Z" fill="#1A1510" opacity="0.15" />
-        <path d="M 23 85 C 38 75, 42 90, 32 95 C 26 97, 20 93, 23 85" />
-        <path d="M 10 65 C 2 50, 15 40, 22 53 C 25 60, 20 67, 10 65 Z" fill="#1A1510" opacity="0.15" />
-        <path d="M 10 65 C 2 50, 15 40, 22 53 C 25 60, 20 67, 10 65" />
-        <path d="M 33 58 C 47 46, 53 61, 43 68 C 35 71, 27 66, 33 58 Z" fill="#1A1510" opacity="0.15" />
-        <path d="M 33 58 C 47 46, 53 61, 43 68 C 35 71, 27 66, 33 58" />
-        <path d="M 28 36 C 18 19, 34 14, 41 26 C 44 34, 38 42, 28 36 Z" fill="#1A1510" opacity="0.15" />
-        <path d="M 28 36 C 18 19, 34 14, 41 26 C 44 34, 38 42, 28 36" />
-        <path d="M 52 39 C 66 26, 72 42, 62 49 C 54 52, 46 46, 52 39 Z" fill="#1A1510" opacity="0.15" />
-        <path d="M 52 39 C 66 26, 72 42, 62 49 C 54 52, 46 46, 52 39" />
-        <path d="M 58 16 C 43 6, 63 16, 73 26 C 78 29, 68 34, 58 16 Z" fill="#1A1510" opacity="0.15" />
-        <path d="M 58 16 C 43 6, 63 16, 73 26 C 78 29, 68 34, 58 16" />
-        <path d="M 85 30 C 85 10, 100 15, 95 30 C 90 35, 85 35, 85 30 Z" fill="#1A1510" opacity="0.15" />
-        <path d="M 85 30 C 85 10, 100 15, 95 30 C 90 35, 85 35, 85 30" />
-      </svg>
-      <!-- Leafy SVG corner - Bottom Right -->
-      <svg class="bc bc-br" width="150" height="150" viewBox="0 0 160 160" fill="none" stroke="#1A1510" stroke-width="1.2" stroke-linecap="round">
-        <path d="M 0 120 C 0 80, 20 20, 120 0" />
-        <path d="M 6 95 C 1 83, 11 75, 18 84 C 20 89, 16 95, 6 95 Z" fill="#1A1510" opacity="0.15" />
-        <path d="M 6 95 C 1 83, 11 75, 18 84 C 20 89, 16 95, 6 95" />
-        <path d="M 23 85 C 38 75, 42 90, 32 95 C 26 97, 20 93, 23 85 Z" fill="#1A1510" opacity="0.15" />
-        <path d="M 23 85 C 38 75, 42 90, 32 95 C 26 97, 20 93, 23 85" />
-        <path d="M 10 65 C 2 50, 15 40, 22 53 C 25 60, 20 67, 10 65 Z" fill="#1A1510" opacity="0.15" />
-        <path d="M 10 65 C 2 50, 15 40, 22 53 C 25 60, 20 67, 10 65" />
-        <path d="M 33 58 C 47 46, 53 61, 43 68 C 35 71, 27 66, 33 58 Z" fill="#1A1510" opacity="0.15" />
-        <path d="M 33 58 C 47 46, 53 61, 43 68 C 35 71, 27 66, 33 58" />
-        <path d="M 28 36 C 18 19, 34 14, 41 26 C 44 34, 38 42, 28 36 Z" fill="#1A1510" opacity="0.15" />
-        <path d="M 28 36 C 18 19, 34 14, 41 26 C 44 34, 38 42, 28 36" />
-        <path d="M 52 39 C 66 26, 72 42, 62 49 C 54 52, 46 46, 52 39 Z" fill="#1A1510" opacity="0.15" />
-        <path d="M 52 39 C 66 26, 72 42, 62 49 C 54 52, 46 46, 52 39" />
-        <path d="M 58 16 C 43 6, 63 16, 73 26 C 78 29, 68 34, 58 16 Z" fill="#1A1510" opacity="0.15" />
-        <path d="M 58 16 C 43 6, 63 16, 73 26 C 78 29, 68 34, 58 16" />
-        <path d="M 85 30 C 85 10, 100 15, 95 30 C 90 35, 85 35, 85 30 Z" fill="#1A1510" opacity="0.15" />
-        <path d="M 85 30 C 85 10, 100 15, 95 30 C 90 35, 85 35, 85 30" />
-      </svg>
-    </div>
+    <div class="card-inner-border"></div>
+
+    <!-- Botanical SVG - top right (main) -->
+    <svg class="bc bc-tr" width="210" height="190" viewBox="0 0 210 190" fill="none">
+      <path d="M210 0 C185 25 155 35 130 68 C118 83 115 100 124 112" stroke="#5A7A4E" stroke-width="1.6" fill="none"/>
+      <path d="M192 18 C172 13 156 24 162 46 C166 57 176 58 186 49 Z" fill="#7A9A68" opacity=".88"/>
+      <path d="M172 6 C152 10 140 24 148 40 C154 52 166 52 173 40 Z" fill="#5A7A4E" opacity=".78"/>
+      <path d="M208 34 C185 32 168 44 172 61 C176 73 188 73 196 62 Z" fill="#8BAF78" opacity=".72"/>
+      <path d="M145 62 C128 56 118 70 124 85 C129 96 141 95 146 83 Z" fill="#6B8F5E" opacity=".68"/>
+      <path d="M160 42 C152 33 141 36 139 49 C137 60 145 64 154 57 Z" fill="#A8C895" opacity=".62"/>
+      <path d="M175 68 C162 62 155 74 162 85 C167 93 177 90 178 79 Z" fill="#C2D9B5" opacity=".55"/>
+      <circle cx="126" cy="108" r="4" fill="#5A7A4E" opacity=".7"/>
+      <circle cx="132" cy="116" r="3" fill="#7A9A68" opacity=".62"/>
+      <circle cx="119" cy="115" r="2.5" fill="#5A7A4E" opacity=".58"/>
+      <circle cx="136" cy="108" r="2" fill="#8BAF78" opacity=".5"/>
+      <path d="M210 0 C205 6 198 12 192 18" stroke="#4A6A3E" stroke-width="1" fill="none"/>
+      <path d="M172 6 C176 11 181 15 186 18" stroke="#4A6A3E" stroke-width=".8" fill="none"/>
+      <path d="M130 68 C134 60 140 55 148 54" stroke="#4A6A3E" stroke-width=".8" fill="none"/>
+    </svg>
+
+    <!-- Bottom left (rotated 180deg via CSS, same SVG) -->
+    <svg class="bc bc-bl" width="210" height="190" viewBox="0 0 210 190" fill="none">
+      <path d="M210 0 C185 25 155 35 130 68 C118 83 115 100 124 112" stroke="#5A7A4E" stroke-width="1.6" fill="none"/>
+      <path d="M192 18 C172 13 156 24 162 46 C166 57 176 58 186 49 Z" fill="#7A9A68" opacity=".88"/>
+      <path d="M172 6 C152 10 140 24 148 40 C154 52 166 52 173 40 Z" fill="#5A7A4E" opacity=".78"/>
+      <path d="M208 34 C185 32 168 44 172 61 C176 73 188 73 196 62 Z" fill="#8BAF78" opacity=".72"/>
+      <path d="M145 62 C128 56 118 70 124 85 C129 96 141 95 146 83 Z" fill="#6B8F5E" opacity=".68"/>
+      <path d="M160 42 C152 33 141 36 139 49 C137 60 145 64 154 57 Z" fill="#A8C895" opacity=".62"/>
+      <path d="M175 68 C162 62 155 74 162 85 C167 93 177 90 178 79 Z" fill="#C2D9B5" opacity=".55"/>
+      <circle cx="126" cy="108" r="4" fill="#5A7A4E" opacity=".7"/>
+      <circle cx="132" cy="116" r="3" fill="#7A9A68" opacity=".62"/>
+      <circle cx="119" cy="115" r="2.5" fill="#5A7A4E" opacity=".58"/>
+    </svg>
+
+    <!-- Small top-left -->
+    <svg class="bc bc-tl" width="130" height="115" viewBox="0 0 130 115" fill="none">
+      <path d="M0 0 C22 18 38 36 44 68" stroke="#5A7A4E" stroke-width="1.2" fill="none"/>
+      <path d="M18 12 C6 28 10 48 26 50 C37 51 42 42 33 30 Z" fill="#8BAF78" opacity=".62"/>
+      <path d="M34 40 C20 44 17 58 28 65 C37 70 44 63 40 52 Z" fill="#6B8F5E" opacity=".56"/>
+      <circle cx="46" cy="70" r="3" fill="#5A7A4E" opacity=".5"/>
+      <circle cx="52" cy="76" r="2" fill="#7A9A68" opacity=".45"/>
+    </svg>
+
+    <!-- Small bottom-right -->
+    <svg class="bc bc-br" width="130" height="115" viewBox="0 0 130 115" fill="none">
+      <path d="M0 0 C22 18 38 36 44 68" stroke="#5A7A4E" stroke-width="1.2" fill="none"/>
+      <path d="M18 12 C6 28 10 48 26 50 C37 51 42 42 33 30 Z" fill="#8BAF78" opacity=".62"/>
+      <path d="M34 40 C20 44 17 58 28 65 C37 70 44 63 40 52 Z" fill="#6B8F5E" opacity=".56"/>
+      <circle cx="46" cy="70" r="3" fill="#5A7A4E" opacity=".5"/>
+    </svg>
 
     <button id="close-letter" aria-label="Kapat">&times;</button>
 
@@ -790,12 +810,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
       <div class="dets">
         <div class="det">
           <!-- Pin icon -->
-          <span class="det-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1510" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-          </span>
+          <div class="det-icon">&#128205;</div>
           <div class="det-lbl">Yer</div>
           <div class="det-main">Salon Zigana VIP</div>
           <div class="det-sub">Atakent Mah. Reşitpaşa Cad. No: 75/B<br>Ümraniye / İstanbul</div>
@@ -803,14 +818,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
         <div class="det-divider"></div>
         <div class="det">
           <!-- Calendar icon -->
-          <span class="det-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1510" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-              <line x1="16" y1="2" x2="16" y2="6"/>
-              <line x1="8" y1="2" x2="8" y2="6"/>
-              <line x1="3" y1="10" x2="21" y2="10"/>
-            </svg>
-          </span>
+          <div class="det-icon">&#128197;</div>
           <div class="det-lbl">Tarih / Saat</div>
           <div class="det-main">25 Ekim 2026 Pazar</div>
           <div class="det-sub" style="border-top: 1px solid rgba(26,21,16,0.2); margin-top:4px; padding-top:4px; width:80px; margin-left:auto; margin-right:auto;">SAAT 13:00</div>
