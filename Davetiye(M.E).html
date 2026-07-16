@@ -450,15 +450,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
   font-size: 0.75rem;
   padding: 4px 0;
 }
-@media(max-width:440px){
-  .fams {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  .fam-divider {
-    display: none;
-  }
-}
+
 
 /* Sprout divider style */
 .sprout-divider {
@@ -491,12 +483,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
   gap: 0;
   margin-bottom: 2rem;
 }
-@media(max-width:480px){
-  .dets {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-}
+
 .det {
   padding: 0.8rem 1.2rem;
   text-align: center;
@@ -550,11 +537,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
   font-size: 0.5rem;
   padding: 4px 0;
 }
-@media(max-width:480px) {
-  .det-divider {
-    display: none;
-  }
-}
+
 
 /* bottom heart line */
 .bottom-heart-divider {
@@ -675,9 +658,12 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
   .connector{font-size:clamp(1.3rem,6vw,1.8rem)}
   .names-block{margin-bottom:.7rem}
   .det-main{font-size:.78rem}
+  .det-sub{font-size:0.72rem; line-height:1.35;}
+  .fnames{font-size:0.82rem;}
+  .ftitle{font-size:0.62rem; letter-spacing:0.12em;}
   .btn-map{font-size:0.65rem;letter-spacing:0.15em;padding:11px}
   .ornament{display:none}
-  .fams{margin-bottom:1.2rem}
+  .fams{margin-bottom:1rem}
   
   /* Scale corner flowers down on mobile to avoid overlap */
   .bc {
