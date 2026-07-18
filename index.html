@@ -593,6 +593,13 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 .btn-map:hover svg {
   transform: scale(1.15);
 }
+.rsvp-note {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: rgba(26, 21, 16, 0.7);
+  margin-top: 1rem;
+}
 
 /* countdown styling */
 #countdown {
@@ -707,14 +714,14 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 <!-- LOADER -->
 <div id="loader">
   <canvas id="particles"></canvas>
-  <div class="loader-text">Davetiyeniz Hazirlanıyor…</div>
+  <div class="loader-text">Davetiyeniz Hazırlanıyor…</div>
 </div>
 
 <!-- SCENE -->
 <div id="scene">
   <div id="floating-letters"></div>
 
-  <button id="music-toggle" data-playing="false" aria-label="Muzigi ac kapat">
+  <button id="music-toggle" data-playing="false" aria-label="Müziği aç / kapat">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
       <path d="M9 18V5l12-2v13" stroke-linecap="round" stroke-linejoin="round"/>
       <circle cx="6" cy="18" r="3"/>
@@ -746,7 +753,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
     </div>
 
     <div class="envelope" id="main-envelope" tabindex="0" role="button"
-         aria-label="Davetiyeyi acmak icin tiklayin veya Enter a basin">
+         aria-label="Davetiyeyi açmak için tıklayın veya Enter'a basın">
       <!-- Arkadaki kâğıt katmanları -->
       <div class="env-layer2" aria-hidden="true"></div>
       <div class="env-layer3" aria-hidden="true"></div>
@@ -803,7 +810,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
         </svg>
       </div>
     </div>
-    <div class="hint-text" id="hint-text">Davetiyeyi açmak için dokunun</div>
+    <div class="hint-text" id="hint-text">Davetiyeyi açmak için tıklayın</div>
   </div>
 </div>
 
@@ -972,12 +979,12 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
       </div>
 
       <div id="countdown">
-        <div class="cd-item"><span id="cd-days">00</span><label>Gun</label></div>
+        <div class="cd-item"><span id="cd-days">00</span><label>Gün</label></div>
         <div class="cd-item"><span id="cd-hours">00</span><label>Saat</label></div>
         <div class="cd-item"><span id="cd-mins">00</span><label>Dakika</label></div>
         <div class="cd-item"><span id="cd-secs">00</span><label>Saniye</label></div>
       </div>
-      <p class="cd-cap">Nisan toreni icin kalan sure</p>
+      <p class="cd-cap">Nişan töreni için kalan süre</p>
 
       <a href="https://maps.google.com/?q=Salon+Zigana+VIP+Umraniye" target="_blank" rel="noopener" class="btn-map">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-top:-1px;">
@@ -986,7 +993,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
         </svg>
         Yol Tarifi Al
       </a>
-      <p class="rsvp-note">Katiliminizi onceden bildirmenizi rica ederiz.</p>
+      <p class="rsvp-note">Katılımınızı önceden bildirmenizi rica ederiz.</p>
     </div>
   </div>
 </div>
