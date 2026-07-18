@@ -226,7 +226,8 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
   display:flex;align-items:flex-start;justify-content:center;
   padding:1.25rem 0.75rem;overflow-y:auto;
   background:rgba(200,220,190,0);opacity:0;pointer-events:none;
-  transition:opacity .7s ease,background .7s ease}
+  transition:opacity .7s ease,background .7s ease;
+  perspective: 1200px;}
 #letter-overlay.open{opacity:1;pointer-events:auto;
   background:rgba(160,200,145,.68);
   backdrop-filter:blur(8px) saturate(1.35);
@@ -235,7 +236,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 /* PAPER TEXTURE SVG filter */
 #paper-filter{position:absolute;width:0;height:0;overflow:hidden}
 
-/* LETTER CARD — gerçek kâğıt dokusu */
+/* LETTER CARD — gerçek kâğıt dokusu ve 3D katlanma açılışı */
 #letter-paper{
   position:relative;width:min(94vw,580px);margin:auto;
   /* Gerçek parşömen tonu */
@@ -258,10 +259,31 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
     /* İç kâğıt gölgesi */
     inset 0 0 80px rgba(180,160,100,.06),
     inset 0 2px 8px rgba(180,160,100,.08);
-  transform:translateY(50px) scale(.85);opacity:0;
-  transition:transform .9s cubic-bezier(.19,1,.22,1),opacity .8s ease;
+  transform: rotateX(50deg) rotateY(-10deg) scale(0.7) translateY(120px);
+  transform-origin: center bottom;
+  opacity:0;
+  transform-style: preserve-3d;
+  transition: transform 1.4s cubic-bezier(0.18, 1, 0.22, 1), opacity 0.9s ease;
   transition-delay:.15s}
-#letter-overlay.open #letter-paper{transform:translateY(0) scale(1);opacity:1}
+#letter-overlay.open #letter-paper{transform: rotateX(0deg) rotateY(0deg) scale(1) translateY(0);opacity:1}
+
+/* Kağıt kat izleri efekti */
+.paper-crease-top, .paper-crease-bottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.03);
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(255, 255, 255, 0.6);
+  z-index: 5;
+  pointer-events: none;
+}
+.paper-crease-top {
+  top: 33%;
+}
+.paper-crease-bottom {
+  top: 66%;
+}
 /* Kâğıt kenar leke efekti */
 #letter-paper::before{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
   box-shadow:inset 0 0 40px rgba(160,130,60,.07),inset 0 0 0 1px rgba(160,140,80,.06);
@@ -817,6 +839,8 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 <!-- LETTER OVERLAY -->
 <div id="letter-overlay" role="dialog" aria-modal="true" aria-label="Nisan davetiyesi">
   <div id="letter-paper">
+    <div class="paper-crease-top"></div>
+    <div class="paper-crease-bottom"></div>
     <!-- Double border structure -->
     <div class="card-inner-border"></div>
 
